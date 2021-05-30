@@ -35,6 +35,21 @@ angular.module('CalculatorApp', [])
         }
         
     };
+    $scope.mod = function() {
+     
+      $scope.sign = '%';
+      if($scope.res){
+        
+        $scope.num_a = $scope.res;
+        $scope.res = null;
+      }
+      else{
+        
+        $scope.num_a = $scope.curr;
+      }
+      $scope.curr = 0;
+      
+    }
     $scope.add = function() {
      
       $scope.sign = '+';
@@ -117,6 +132,14 @@ angular.module('CalculatorApp', [])
         $scope.num_a = null
         $scope.curr = null
         
+      }
+      if($scope.sign === '%'){
+        
+        $scope.res = $scope.num_a % $scope.curr;
+        $scope.sign = "";
+        $scope.num_a = null
+        $scope.curr = null
+       
       }
     
      
