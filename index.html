@@ -5,28 +5,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
   </head>
 
   <body ng-app="CalculatorApp" ng-init="a=0;b=0;curr=0;" ng-controller="CalculatorController">
     <h1>Calculator</h1>
    <div class="container">
     
+    <div id="header">
+      <div id="output">
+        <div id="text">
+          {{res}} {{ num_a }} {{sign}} {{ curr }} 
+        </div>
+      </div>
+      
+    </div>
+
      <table>
-      <tr id="result">
-        <td colspan="4">{{ num_a }} {{sign}} {{ curr }} {{res}}</td>
-      </tr>
       <tr>
-        <td>
-          <button ng-click="cancel()">C</button>
-        </td>
-        <td>
-          <button>+/-</button>
-        </td>
+       
+      
+       
         <td>
           <button>%</button>
         </td>
+        
+         
+         <td>
+          <button ng-click="mul()">x</button>
+         </td>
+         <td>
+          <button id="del" ng-click="cancel()">C</button>
+        </td>
         <td>
-          <button ng-click="del()">DEL</button>
+          <button id="del" ng-click="del()">DEL</button>
         </td>
       </tr>
       <tr class="row">
@@ -40,8 +56,10 @@
         <button ng-click="digit(9)">9</button>
        </td>
        <td>
-        <button ng-click="div()" >/</button>
+        <button ng-click="sub()">-</button>
        </td>
+       
+      
       </tr>
       <tr class="row">
         <td>
@@ -53,9 +71,12 @@
         <td>
          <button ng-click="digit(6)">6</button>
         </td>
+
         <td>
-         <button ng-click="mul()">x</button>
-        </td>
+          <button ng-click="add()">+</button>
+         </td>
+       
+        
        </tr>
        <tr class="row">
         <td>
@@ -67,24 +88,26 @@
         <td>
          <button ng-click="digit(3)">3</button>
         </td>
-        <td>
-         <button ng-click="sub()">-</button>
-        </td>
+        <td rowspan="2">
+          <button id="addbtn" ng-click="equal()">=</button>
+         </td>
        </tr>
-       <tr class="row">
+       <tr class="row" >
+        <td>
+          <button ng-click="div()" >/</button>
+         </td>
+        
         <td>
           <button ng-click="digit(0)">0</button>
         </td>
         <td>
-         <button>.</button>
-        </td>
-        <td>
-         <button ng-click="equal()">=</button>
-        </td>
-        <td>
-         <button ng-click="add()">+</button>
-        </td>
+          <button>.</button>
+         </td>
        </tr>
+       
+       <!-- <tr id="result">
+        <td rowspan="2">{{ num_a }} {{sign}} {{ curr }} {{res}}</td>
+      </tr> -->
       
      </table>
    </div>

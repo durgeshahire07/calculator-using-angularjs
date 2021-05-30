@@ -5,7 +5,7 @@ angular.module('CalculatorApp', [])
       // var a = $scope.curr.toString(); 
       if($scope.res){
         $scope.res = Math.floor($scope.res/10);
-        console.log("h")
+    
       }     
       else{
         $scope.curr = Math.floor($scope.curr/10);
@@ -19,7 +19,12 @@ angular.module('CalculatorApp', [])
 
     }
     $scope.digit = function(num) {
-      $scope.res = null;
+      // console.log($scope.res)
+        // if(( $scope.res==0 )&& $scope.sign==null){
+          if($scope.res!=null && $scope.sign != null){
+          console.log("inside")
+          $scope.res = null;
+        } 
         if($scope.curr==0){
           $scope.curr=num;
         }
@@ -34,10 +39,12 @@ angular.module('CalculatorApp', [])
      
       $scope.sign = '+';
       if($scope.res){
+        
         $scope.num_a = $scope.res;
         $scope.res = null;
       }
       else{
+        
         $scope.num_a = $scope.curr;
       }
       $scope.curr = 0;
